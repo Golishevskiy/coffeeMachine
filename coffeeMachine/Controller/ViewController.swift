@@ -12,9 +12,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        var cap = Coffee()
+        cap.addCoffe(weight: 80)
+        cap.addWater(weight: 1000)
+        cap.addMilk(weight: 200)
+        cap.americano()
+        cap.flatWhite()
     }
-
-
 }
 
