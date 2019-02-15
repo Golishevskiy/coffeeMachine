@@ -8,16 +8,22 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
 
+
+    @IBOutlet weak var weightCoffeTextField: UITextField!
+    @IBAction func addCoffe(_ sender: Any) {
+        let cofeeWeight = weightCoffeTextField!.text ?? "0"
+        let result = cap.addCoffe(weight: Int(cofeeWeight) ?? 0)
+        print(result)
+    }
+    
+    var cap = Coffee()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        var cap = Coffee()
-        cap.addCoffe(weight: 80)
-        cap.addWater(weight: 1000)
-        cap.addMilk(weight: 200)
-        cap.americano()
-        cap.flatWhite()
+
     }
 }
 
