@@ -39,65 +39,66 @@ class Coffee {
     }
     
     //check the shortage of products
-    func checkShortageOfProducts(cofeeDose: Int, waterDose: Int, milkDose: Int?) {
+    func checkShortageOfProducts(cofeeDose: Int, waterDose: Int, milkDose: Int?) -> String {
         if coffee < cofeeDose {
-            print("please adds coffee")
+            return "please adds coffee"
         }
         
         if water < waterDose {
-            print("please adds water")
+            return "please adds water"
         }
         
         if milk < milkDose ?? 100 {
-            print("please adds milk")
+            return "please adds milk"
         }
+        return ""
     }
     //---------------drink-------------
-    func americano() {
+    func americano() -> String {
         let needCoffe = 20
         let needWater = 200
         if checkProduct(cofeeDose: needCoffe, waterDose: needWater) {
-            print("Americano done")
+            return "Americano done"
         } else {
-            checkShortageOfProducts(cofeeDose: needCoffe, waterDose: needWater, milkDose: nil)
+            return checkShortageOfProducts(cofeeDose: needCoffe, waterDose: needWater, milkDose: nil)
         }
     }
-        
-        func espresso() {
-            let needCoffe = 20
-            let needWater = 70
-            if checkProduct(cofeeDose: needCoffe, waterDose: needWater) {
-                print("Espresso done")
-            } else {
-                checkShortageOfProducts(cofeeDose: needCoffe, waterDose: needWater, milkDose: nil)
-            }
-        }
-        
-        func flatWhite() {
-            let needCoffe = 30
-            let needWater = 70
-            let needMilk = 150
-            if checkProduct(cofeeDose: needCoffe, waterDose: needWater, milkDose: needMilk) {
-                print("flatWhite done")
-            } else {
-                checkShortageOfProducts(cofeeDose: needCoffe, waterDose: needWater, milkDose: needMilk)
-            }
-            
-        }
-        //---------------drink-------------
     
-        func addCoffe(weight: Int) -> String {
-            coffee += weight
-            return "adds \(weight) g coffe"
-        }
-        
-        func addMilk(weight: Int) -> String {
-            milk += weight
-            return "adds \(weight) g milk"
-        }
-        
-        func addWater(weight: Int) -> String {
-            water += weight
-            return "adds \(weight) g water"
+    func espresso() -> String {
+        let needCoffe = 20
+        let needWater = 70
+        if checkProduct(cofeeDose: needCoffe, waterDose: needWater) {
+            return "Espresso done"
+        } else {
+           return checkShortageOfProducts(cofeeDose: needCoffe, waterDose: needWater, milkDose: nil)
         }
     }
+    
+    func flatWhite() -> String {
+        let needCoffe = 30
+        let needWater = 70
+        let needMilk = 150
+        if checkProduct(cofeeDose: needCoffe, waterDose: needWater, milkDose: needMilk) {
+            return "flatWhite done"
+        } else {
+            return checkShortageOfProducts(cofeeDose: needCoffe, waterDose: needWater, milkDose: needMilk)
+        }
+        
+    }
+    //---------------drink-------------
+    
+    func addCoffe(weight: Int) -> String {
+        coffee += weight
+        return "adds \(weight) g coffe"
+    }
+    
+    func addMilk(weight: Int) -> String {
+        milk += weight
+        return "adds \(weight) g milk"
+    }
+    
+    func addWater(weight: Int) -> String {
+        water += weight
+        return "adds \(weight) g water"
+    }
+}
